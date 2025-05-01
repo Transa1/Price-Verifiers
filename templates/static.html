@@ -9,7 +9,6 @@
 </head>
 <body class="bg-white text-black transition-colors duration-300">
 
-  <!-- Header con logos y hora/fecha -->
   <header class="flex justify-between items-center p-4 border-b">
     <div class="w-16 h-16">
       <img src="{% static 'BowserJr.jpg' %}" alt="Logo izquierdo" class="w-full h-full object-contain" />
@@ -23,14 +22,11 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
   <main class="p-4 max-w-xl mx-auto">
-    <!-- GIF Código de barras -->
     <div class="flex justify-center mb-4">
         <img id="barcode-gif" src="{% static 'barcode.gif' %}" alt="Código de barras" class="w-96 h-auto" />
     </div>
 
-    <!-- Barra de búsqueda -->
     <div class="mb-4">
       <label for="search-id" class="block text-lg font-semibold mb-2" id="label-search">Buscar Producto</label>
       <input type="number" id="search-id" class="w-full p-2 border rounded" placeholder="Código de Barras" />
@@ -39,7 +35,6 @@
       </button>
     </div>
 
-    <!-- Resultado -->
     <div id="resultado" class="hidden p-8 rounded shadow text-center w-full max-w-3xl mx-auto mt-20 bg-green-100">
         <img id="res-imagen" src="" alt="Imagen del producto" class="mx-auto mb-4 w-48 h-48 object-contain hidden" />
         <p id="res-id" class="text-xl mb-2"></p>
@@ -48,19 +43,16 @@
       </div>      
   </main>
 
-  <!-- Botón modo oscuro -->
   <button onclick="toggleDarkMode()" id="btn-darkmode"
     class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-700 transition">
     🌓
   </button>
 
-  <!-- Botón cambiar idioma -->
   <button onclick="toggleLanguage()" id="btn-lang"
     class="fixed bottom-20 right-4 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-700 transition">
     🌐
   </button>
 
-  <!-- Script -->
   <script>
     const staticBaseUrl = "{% get_static_prefix %}";
     const productos = {{ productos|safe }};
@@ -92,7 +84,6 @@
         botonBusqueda.classList.add("hidden");
         labelBusqueda.classList.add("hidden");
 
-        // Asegura el color correcto según el modo
         resultadoDiv.classList.remove("bg-green-100", "bg-green-800");
         resultadoDiv.classList.add(darkMode ? "bg-green-800" : "bg-green-100");
 
