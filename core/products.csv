@@ -1,0 +1,21 @@
+ID,Nombre del Producto,Nombre en Inglés,Precio,Imagen
+1,Manzana,Apple,12.50,1.jpg
+2,Plátano,Banana,9.30,2.jpg
+3,"Pan integral","Whole wheat bread",28.00,3.jpg
+4,"Leche entera","Whole milk",22.50,4.jpg
+5,"Huevo (12 piezas)","Eggs (12 count)",45.00,5.jpg
+6,"Arroz (1 kg)","Rice (1 kg)",18.75,6.jpg
+7,"Frijol negro (1 kg)","Black beans (1 kg)",24.90,7.jpg
+8,"Aceite vegetal (1 L)","Vegetable oil (1 L)",35.00,8.jpg
+9,"Harina de trigo (1 kg)","Wheat flour (1 kg)",17.50,9.jpg
+10,"Azúcar (1 kg)","Sugar (1 kg)",20.00,10.jpg
+11,"Café soluble (200 g)","Instant coffee (200 g)",58.00,11.jpg
+12,"Té de manzanilla (25 bolsas)","Chamomile tea (25 bags)",26.00,12.jpg
+13,"Yogurt natural (1 L)","Plain yogurt (1 L)",30.90,13.jpg
+14,"Mantequilla (90 g)","Butter (90 g)",19.90,14.jpg
+15,"Queso panela (250 g)","Panela cheese (250 g)",42.00,15.jpg
+16,"Jamón de pavo (250 g)","Turkey ham (250 g)",48.00,16.jpg
+17,"Agua embotellada (1.5 L)","Bottled water (1.5 L)",13.00,17.jpg
+18,"Refresco (2 L)","Soda (2 L)",29.50,18.jpg
+19,"Galletas integrales (200 g)","Whole grain cookies (200 g)",31.25,19.jpg
+20,"Papel higiénico (4 rollos)","Toilet paper (4 rolls)",39.00,20.jpg

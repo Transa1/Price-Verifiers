@@ -1,0 +1,143 @@
+[
+    {
+      "id": "1",
+      "nombre": "Manzana",
+      "english_name": "Apple",
+      "precio": "12.50",
+      "imagen": "1.jpg"
+    },
+    {
+      "id": "2",
+      "nombre": "Plátano",
+      "english_name": "Banana",
+      "precio": "9.30",
+      "imagen": "2.jpg"
+    },
+    {
+      "id": "3",
+      "nombre": "Pan integral",
+      "english_name": "Whole wheat bread",
+      "precio": "28.00",
+      "imagen": "3.jpg"
+    },
+    {
+      "id": "4",
+      "nombre": "Leche entera",
+      "english_name": "Whole milk",
+      "precio": "22.50",
+      "imagen": "4.jpg"
+    },
+    {
+      "id": "5",
+      "nombre": "Huevo (12 piezas)",
+      "english_name": "Eggs (12 count)",
+      "precio": "45.00",
+      "imagen": "5.jpg"
+    },
+    {
+      "id": "6",
+      "nombre": "Arroz (1 kg)",
+      "english_name": "Rice (1 kg)",
+      "precio": "18.75",
+      "imagen": "6.jpg"
+    },
+    {
+      "id": "7",
+      "nombre": "Frijol negro (1 kg)",
+      "english_name": "Black beans (1 kg)",
+      "precio": "24.90",
+      "imagen": "7.jpg"
+    },
+    {
+      "id": "8",
+      "nombre": "Aceite vegetal (1 L)",
+      "english_name": "Vegetable oil (1 L)",
+      "precio": "35.00",
+      "imagen": "8.jpg"
+    },
+    {
+      "id": "9",
+      "nombre": "Harina de trigo (1 kg)",
+      "english_name": "Wheat flour (1 kg)",
+      "precio": "17.50",
+      "imagen": "9.jpg"
+    },
+    {
+      "id": "10",
+      "nombre": "Azúcar (1 kg)",
+      "english_name": "Sugar (1 kg)",
+      "precio": "20.00",
+      "imagen": "10.jpg"
+    },
+    {
+      "id": "11",
+      "nombre": "Café soluble (200 g)",
+      "english_name": "Instant coffee (200 g)",
+      "precio": "58.00",
+      "imagen": "11.jpg"
+    },
+    {
+      "id": "12",
+      "nombre": "Té de manzanilla (25 bolsas)",
+      "english_name": "Chamomile tea (25 bags)",
+      "precio": "26.00",
+      "imagen": "12.jpg"
+    },
+    {
+      "id": "13",
+      "nombre": "Yogurt natural (1 L)",
+      "english_name": "Plain yogurt (1 L)",
+      "precio": "30.90",
+      "imagen": "13.jpg"
+    },
+    {
+      "id": "14",
+      "nombre": "Mantequilla (90 g)",
+      "english_name": "Butter (90 g)",
+      "precio": "19.90",
+      "imagen": "14.jpg"
+    },
+    {
+      "id": "15",
+      "nombre": "Queso panela (250 g)",
+      "english_name": "Panela cheese (250 g)",
+      "precio": "42.00",
+      "imagen": "15.jpg"
+    },
+    {
+      "id": "16",
+      "nombre": "Jamón de pavo (250 g)",
+      "english_name": "Turkey ham (250 g)",
+      "precio": "48.00",
+      "imagen": "16.jpg"
+    },
+    {
+      "id": "17",
+      "nombre": "Agua embotellada (1.5 L)",
+      "english_name": "Bottled water (1.5 L)",
+      "precio": "13.00",
+      "imagen": "17.jpg"
+    },
+    {
+      "id": "18",
+      "nombre": "Refresco (2 L)",
+      "english_name": "Soda (2 L)",
+      "precio": "29.50",
+      "imagen": "18.jpg"
+    },
+    {
+      "id": "19",
+      "nombre": "Galletas integrales (200 g)",
+      "english_name": "Whole grain cookies (200 g)",
+      "precio": "31.25",
+      "imagen": "19.jpg"
+    },
+    {
+      "id": "20",
+      "nombre": "Papel higiénico (4 rollos)",
+      "english_name": "Toilet paper (4 rolls)",
+      "precio": "39.00",
+      "imagen": "20.jpg"
+    }
+  ]
+  

@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Static</title>
+</head>
+<body class="bg-white text-black transition-colors duration-300">
+
+  <!-- Header con logos y hora/fecha -->
+  <header class="flex justify-between items-center p-4 border-b">
+    <div class="w-16 h-16">
+      <img src="{% static 'BowserJr.jpg' %}" alt="Logo izquierdo" class="w-full h-full object-contain" />
+    </div>
+    <div class="text-center">
+      <div id="current-time" class="text-2xl font-bold"></div>
+      <div id="current-date" class="text-gray-600"></div>
+    </div>
+    <div class="w-16 h-16">
+      <img src="{% static 'KillerQueen Nice.jpg' %}" alt="Logo derecho" class="w-full h-full object-contain" />
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="p-4 max-w-xl mx-auto">
+    <!-- GIF Código de barras -->
+    <div class="flex justify-center mb-4">
+        <img id="barcode-gif" src="{% static 'barcode.gif' %}" alt="Código de barras" class="w-96 h-auto" />
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <div class="mb-4">
+      <label for="search-id" class="block text-lg font-semibold mb-2" id="label-search">Buscar Producto</label>
+      <input type="number" id="search-id" class="w-full p-2 border rounded" placeholder="Código de Barras" />
+      <button onclick="buscarProducto()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" id="btn-search">
+        Buscar
+      </button>
+    </div>
+
+    <!-- Resultado -->
+    <div id="resultado" class="hidden p-8 rounded shadow text-center w-full max-w-3xl mx-auto mt-20 bg-green-100">
+        <img id="res-imagen" src="" alt="Imagen del producto" class="mx-auto mb-4 w-48 h-48 object-contain hidden" />
+        <p id="res-id" class="text-xl mb-2"></p>
+        <p id="res-nombre" class="text-2xl font-semibold mb-2"></p>
+        <p class="text-2xl">$<span id="res-precio"></span></p>
+      </div>      
+  </main>
+
+  <!-- Botón modo oscuro -->
+  <button onclick="toggleDarkMode()" id="btn-darkmode"
+    class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-700 transition">
+    🌓
+  </button>
+
+  <!-- Botón cambiar idioma -->
+  <button onclick="toggleLanguage()" id="btn-lang"
+    class="fixed bottom-20 right-4 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-700 transition">
+    🌐
+  </button>
+
+  <!-- Script -->
+  <script>
+    const staticBaseUrl = "{% get_static_prefix %}";
+    const productos = {{ productos|safe }};
+    let currentLang = "es";
+    let darkMode = false;
+
+    function buscarProducto() {
+      const inputId = document.getElementById("search-id").value;
+      const resultadoDiv = document.getElementById("resultado");
+      const barcodeGif = document.getElementById("barcode-gif");
+      const imagen = document.getElementById("res-imagen");
+      const inputBusqueda = document.getElementById("search-id");
+      const botonBusqueda = document.getElementById("btn-search");
+      const labelBusqueda = document.getElementById("label-search");
+
+      const producto = productos.find(p => p.id === inputId || p.id === inputId.toString());
+
+      if (producto) {
+        document.getElementById("res-id").textContent = producto.id;
+        document.getElementById("res-nombre").textContent = currentLang === "es" ? producto.nombre : producto.english_name;
+        document.getElementById("res-precio").textContent = producto.precio;
+
+        imagen.src = staticBaseUrl + producto.imagen;
+        imagen.classList.remove("hidden");
+
+        resultadoDiv.classList.remove("hidden");
+        barcodeGif.classList.add("hidden");
+        inputBusqueda.classList.add("hidden");
+        botonBusqueda.classList.add("hidden");
+        labelBusqueda.classList.add("hidden");
+
+        // Asegura el color correcto según el modo
+        resultadoDiv.classList.remove("bg-green-100", "bg-green-800");
+        resultadoDiv.classList.add(darkMode ? "bg-green-800" : "bg-green-100");
+
+        setTimeout(() => {
+          resultadoDiv.classList.add("hidden");
+          imagen.classList.add("hidden");
+          barcodeGif.classList.remove("hidden");
+          inputBusqueda.classList.remove("hidden");
+          botonBusqueda.classList.remove("hidden");
+          labelBusqueda.classList.remove("hidden");
+        }, 5000);
+      } else {
+        resultadoDiv.classList.add("hidden");
+        imagen.classList.add("hidden");
+        alert(currentLang === "es" ? "Producto no encontrado" : "Product not found");
+      }
+    }
+
+    function updateDateTime() {
+      const now = new Date();
+      const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+      document.getElementById('current-time').textContent =
+        now.toLocaleTimeString(currentLang === "es" ? "es-ES" : "en-US", timeOptions);
+
+      document.getElementById('current-date').textContent =
+        now.toLocaleDateString(currentLang === "es" ? "es-ES" : "en-US", dateOptions);
+    }
+
+    function toggleDarkMode() {
+      darkMode = !darkMode;
+      document.body.classList.toggle("bg-white", !darkMode);
+      document.body.classList.toggle("bg-gray-900", darkMode);
+      document.body.classList.toggle("text-black", !darkMode);
+      document.body.classList.toggle("text-white", darkMode);
+
+      const resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.classList.remove("bg-green-100", "bg-green-800");
+      resultadoDiv.classList.add(darkMode ? "bg-green-800" : "bg-green-100");
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === "es" ? "en" : "es";
+
+      document.getElementById("search-id").placeholder = currentLang === "es" ? "Código de Barras" : "Barcode";
+      document.getElementById("label-search").textContent = currentLang === "es" ? "Buscar Producto" : "Search Product";
+      document.getElementById("btn-search").textContent = currentLang === "es" ? "Buscar" : "Search";
+      document.getElementById("label-name").textContent = currentLang === "es" ? "Nombre:" : "Name:";
+      document.getElementById("label-price").textContent = currentLang === "es" ? "Precio:" : "Price:";
+
+      updateDateTime();
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+</body>
+</html>
